@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Store – Green hanga Ltd</title>
+  <style>
+    :root {
+      --main-green: #2e7d32;
+      --light-green: #a5d6a7;
+      --white: #ffffff;
+      --gray: #f5f5f5;
+      --dark-gray: #333333;
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      background-color: var(--gray);
+      color: var(--dark-gray);
+    }
+
+  
+
+    header {
+      background-color: var(--main-green);
+      color: var(--white);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+
+    
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2em;
+    }
+
+    h1 {
+      color: var(--main-green);
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2em;
+      margin-top: 2em;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.5em;
+      box-shadow: 0 0 8px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-card h3 {
+      color: var(--main-green);
+      margin-bottom: 0.5em;
+    }
+
+    .product-card p {
+      font-size: 0.95em;
+      margin-bottom: 1em;
+    }
+    
+    .product-price {
+      color: var(--main-green);
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+
+    .order-btn {
+      background-color: var(--main-green);
+      color: var(--white);
+      padding: 0.7em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .order-btn:hover {
+      background-color: #1b5e20;
+      text-decoration: none;
+    }
+
+    footer {
+      background-color: var(--main-green);
+      color: var(--white);
+      text-align: center;
+      padding: 1em;
+      margin-top: 3em;
+    }
+
+    .socials a {
+      margin: 0 1em;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Green hanga Ltd</div>
+    
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="store.html">Store</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <div class="logo-container" style="text-align: left; width: 180px; height: 60px; padding: 5px;">
+    <img src="stove.jpg10.jpg" alt="Green Hanga Logo" class="page-logo" style="width: 100%; height: 100%; object-fit: contain;">
+</div>
+
+  <div class="container">
+    <h1>🛒 Our Stove Collection</h1>
+    <p>Explore our full range of high-efficiency stoves made in Rwanda. Whether you're cooking for your home or a business, Green hanga Ltd has your back.</p>
+
+    <div class="products" id="products-container">
+      <!-- Products will be loaded dynamically here -->
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Green hanga Ltd. Made in Rwanda. Fuel-saving solutions for every home.</p>
+    <div class="socials">
+      <a href="https://www.instagram.com/greenhanga__rw/" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@greenhanga?lang=en" target="_blank">TikTok</a>
+      <a href="https://www.youtube.com/@Greenhanga" target="_blank">YouTube</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const productsContainer = document.getElementById("products-container");
+      const products = JSON.parse(localStorage.getItem("storeProducts")) || [];
+      
+      if (products.length === 0) {
+        // Fallback content if no products exist
+        productsContainer.innerHTML = `
+          <div class="product-card">
+            <h3>Barbecue Stove</h3>
+            <img src="stove.jpg1.jpg" alt="Barbecue Stove" style="width: 100%; border-radius: 8px; margin-bottom: 1em;">
+            <p>Customizable charcoal-efficient cooking solution ideal for both homes and businesses. Designed to grill meat and bake bread using minimal charcoal, it offers eco-friendly performance and cost savings.</p>
+            <a href="https://wa.me/250790137405?text=I'm%20interested%20in%20Barbecue%20Stove" class="order-btn" target="_blank">Order Now</a>
+          </div>
+
+          <div class="product-card">
+            <h3>Gas Barbecue</h3>
+            <img src="stove.jpg2.jpg" alt="Gas Barbecue" style="width: 100%; border-radius: 8px; margin-bottom: 1em;">
+            <p>Fast, fuel-efficient grilling stove designed for speed, portability, and low-cost operation. Ideal for street vendors and small events, it uses less gas while delivering high-heat performance.</p>
+            <a href="https://wa.me/250790137405?text=I'm%20interested%20in%20gas%20Barbecue" class="order-btn" target="_blank">Order Now</a>
+          </div>
+
+          <div class="product-card">
+            <h3>Gas Oven Barbecue</h3>
+            <img src="stove.jpg3.jpg" alt="Gas Oven Barbecue" style="width: 100%; border-radius: 8px; margin-bottom: 1em;">
+            <p>Compact, energy-efficient appliance that grills meat and cooks snacks with precision and speed. Features a built-in temperature gauge for accurate heat control.</p>
+            <a href="https://wa.me/250790137405?text=I'm%20interested%20in%20gas%20oven%20Barbecue" class="order-btn" target="_blank">Order Now</a>
+          </div>
+
+          <div class="product-card">
+            <h3>Vuba 02 Charcoal Stove</h3>
+            <img src="stove.jpg4.jpg" alt="Vuba 02 a charcoal-powered stove" style="width: 100%; border-radius: 8px; margin-bottom: 1em;">
+            <p>Built for daily cooking, offering 35.7% thermal efficiency and certified Tier 3 by the Rwanda Standards Board. Burns less charcoal while maintaining strong performance.</p>
+            <a href="https://wa.me/250790137405?text=I'm%20interested%20in%20Vuba%2002%20charcoal%20stove" class="order-btn" target="_blank">Order Now</a>
+          </div>
+
+          <div class="product-card">
+            <h3>Vuba 04 Pellet Stove</h3>
+            <img src="stove.jpg5.jpg" alt="Vuba 04 a pellet-fueled stove" style="width: 100%; border-radius: 8px; margin-bottom: 1em;">
+            <p>With a Tier 4 efficiency rating and 40.3% thermal efficiency, delivering fast, clean, and adjustable cooking. Certified by the Rwanda Standards Board.</p>
+            <a href="https://wa.me/250790137405?text=I'm%20interested%20in%20Vuba%2004%20pellet%20stove" class="order-btn" target="_blank">Order Now</a>
+          </div>
+
+          <div class="product-card">
+            <h3>Vuba 04 Firewood Stove</h3>
+            <img src="stove.jpg6.jpg" alt="Vuba 04 is a firewood-powered stove" style="width: 100%; border-radius: 8px; margin-bottom: 1em;">
+            <p>Firewood-powered stove with 40.1% thermal efficiency, approved by the Rwanda Standards Board. Uses less wood and reduces indoor air pollution.</p>
+            <a href="https://wa.me/250790137405?text=I'm%20interested%20in%20Vuba%2004%20firewood%20stove" class="order-btn" target="_blank">Order Now</a>
+          </div>
+
+          <div class="product-card">
+            <h3>High-Pressure Gas Stove</h3>
+            <img src="stove.jpg7.png" alt="High pressure Gas Stove " style="width: 100%; border-radius: 8px; margin-bottom: 1em;">
+            <p>Powerful, gas-efficient solution built for large-scale cooking. With high heat output and modular design, it delivers speed and precision for professional kitchens.</p>
+            <a href="https://wa.me/250790137405?text=I'm%20interested%20in%20High-pressure%20Gas%20stove" class="order-btn" target="_blank">Order Now</a>
+          </div>
+
+          <div class="product-card">
+            <h3>High-Quality Sinks</h3>
+            <img src="stove.jpg8.png" alt="Green Hanga Ltd designs and builds high-quality, affordable sinks" style="width: 100%; border-radius: 8px; margin-bottom: 1em;">
+            <p>We design and build high-quality sinks for homes, restaurants, and hotels. Blending modern design with practical function, each sink is customized to fit client needs.</p>
+            <a href="https://wa.me/250790137405?text=I'm%20interested%20in%20designs%20and%20builds%20High-quality,%20affordable%20sinks" class="order-btn" target="_blank">Order Now</a>
+          </div>
+
+          <div class="product-card">
+            <h3>Kitchen Chimneys</h3>
+            <img src="stove.jpg9.jpg" alt="kitchen chimneys" style="width: 100%; border-radius: 8px; margin-bottom: 1em;">
+            <p>We build and install high-quality kitchen chimneys designed to effectively remove smoke, heat, and odors. Customizable to fit any kitchen layout.</p>
+            <a href="https://wa.me/250790137405?text=I'm%20interested%20in%20kitchen%20chimneys" class="order-btn" target="_blank">Order Now</a>
+          </div>
+        `;
+        return;
+      }
+      
+      products.forEach(product => {
+        const productCard = document.createElement("div");
+        productCard.className = "product-card";
+        productCard.innerHTML = `
+          <h3>${product.name}</h3>
+          <img src="${product.image}" alt="${product.name}" style="width: 100%; border-radius: 8px; margin-bottom: 1em;">
+          <p>${product.description}</p>
+          ${product.price ? `<p class="product-price">$${product.price.toFixed(2)}</p>` : ''}
+          <a href="https://wa.me/250790137405?text=I'm interested in ${encodeURIComponent(product.name)}" 
+             class="order-btn" target="_blank">Order Now</a>
+        `;
+        productsContainer.appendChild(productCard);
+      });
+    });
+  </script>
+</body>
+</html>

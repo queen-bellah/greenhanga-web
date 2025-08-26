@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – Green Hanga Ltd</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --main-green: #2e7d32;
+      --light-green: #a5d6a7;
+      --white: #ffffff;
+      --gray: #f5f5f5;
+      --dark-gray: #333333;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: var(--gray);
+      color: var(--dark-gray);
+    }
+    
+    /* Header - matches index.html */
+    header {
+      background-color: var(--main-green);
+      color: var(--white);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+    
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .logo-container {
+      width: 180px;
+      height: 60px;
+      padding: 5px;
+      
+    }
+    
+    .logo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    /* Main container */
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .contact-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .contact-header h1 {
+      color: var(--main-green);
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+    
+    /* Contact sections - match index.html styling */
+    .contact-section {
+      padding: 2rem;
+      margin-bottom: 2rem;
+      background-color: var(--white);
+      border-radius: 8px;
+    }
+    
+    .contact-section h3 {
+      color: var(--main-green);
+      margin-bottom: 1rem;
+    }
+    
+    .contact-info p {
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    
+    .contact-info i {
+      width: 30px;
+      height: 30px;
+      background: var(--light-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--main-green);
+      flex-shrink: 0;
+    }
+    
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin: 2rem 0;
+    }
+    
+    .contact-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .contact-card i {
+      font-size: 2.2rem;
+      color: var(--main-green);
+      margin-bottom: 1rem;
+    }
+    
+    .contact-card h3 {
+      margin-bottom: 0.8rem;
+      color: var(--main-green);
+      font-size: 1.2rem;
+    }
+    
+    .contact-btn {
+      display: inline-block;
+      background: var(--main-green);
+      color: var(--white);
+      padding: 0.7rem 1.3rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 0.8rem;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .contact-btn:hover {
+      background: #1b5e20;
+      text-decoration: none;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--main-green);
+      color: var(--white);
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: #1b5e20;
+      transform: translateY(-3px);
+    }
+    
+    .faq-section {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+    }
+    
+    .faq-section h2 {
+      text-align: center;
+      color: var(--main-green);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+    
+    .faq-item {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .faq-item h3 {
+      color: var(--main-green);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 1.2rem;
+    }
+    
+    .faq-item i {
+      color: var(--main-green);
+    }
+    
+    /* Footer - matches index.html */
+    footer {
+      background-color: var(--main-green);
+      color: var(--white);
+      padding: 1rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    
+    /* Responsive adjustments */
+ 
+  </style>
+</head>
+<body>
+  <!-- Header matches index.html -->
+  <header>
+    <div class="logo">Green hanga Ltd</div>
+    
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="store.html">Store</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <div class="logo-container" style="text-align: left; width: 180px; height: 60px; padding: 5px;">
+    <img src="stove.jpg10.jpg" alt="Green Hanga Logo" class="page-logo" style="width: 100%; height: 100%; object-fit: contain;">
+</div>
+  
+  <div class="container">
+    <div class="contact-header">
+      <h1>Contact Green Hanga Ltd</h1>
+      <p>We're here to help you find the perfect clean-cooking solution. Reach out to us today!</p>
+    </div>
+    
+    <!-- Contact Information -->
+    <div class="contact-section">
+      <div class="contact-info">
+        <p>
+          <i class="fas fa-user"></i>
+          <strong>Owner:</strong> Nsengiyumva Jean Bosco
+        </p>
+        <p>
+          <i class="fas fa-map-marker-alt"></i>
+          <strong>Location:</strong> 1km from Kimironko Market toward kwisangano 
+        </p>
+        <p>
+          <i class="fab fa-whatsapp"></i>
+          <strong>WhatsApp / Phone:</strong> 
+          <a href="https://wa.me/250790137405" target="_blank" style="color: var(--main-green); text-decoration: none;">
+            +250 790 137 405
+          </a>
+        </p>
+        <p>
+          <i class="fas fa-envelope"></i>
+          <strong>Email:</strong> 
+          <a href="mailto:greenhanga@gmail.com" style="color: var(--main-green); text-decoration: none;">
+            greenhanga@gmail.com
+          </a>
+        </p>
+      </div>
+      
+      <!-- Contact Cards -->
+      <div class="contact-cards">
+        <div class="contact-card">
+          <i class="fab fa-whatsapp"></i>
+          <h3>WhatsApp</h3>
+          <p>Chat with us directly</p>
+          <a href="https://wa.me/250790137405" class="contact-btn" target="_blank">
+            Message Now
+          </a>
+        </div>
+        
+        <div class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <h3>Email</h3>
+          <p>Send us a direct email</p>
+          <a href="mailto:greenhanga@gmail.com" class="contact-btn">
+            Send Email
+          </a>
+        </div>
+        
+        <div class="contact-card">
+          <i class="fas fa-phone-alt"></i>
+          <h3>Call Us</h3>
+          <p>Available during business hours</p>
+          <a href="tel:+250790137405" class="contact-btn">
+            Call Now
+          </a>
+        </div>
+      </div>
+      
+      <!-- Social Media Links -->
+      <div style="text-align: center; margin: 2rem 0;">
+        <h3 style="color: var(--main-green); margin-bottom: 1rem;">Follow Us</h3>
+        <div class="social-links">
+          <a href="https://www.instagram.com/greenhanga__rw/" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.tiktok.com/@greenhanga?lang=en" target="_blank">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://www.youtube.com/@Greenhanga" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://wa.me/250790137405" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- FAQ Section -->
+    <div class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      
+      <div class="faq-item">
+        <h3><i class="fas fa-question-circle"></i> How quickly do you respond?</h3>
+        <p>We typically respond to WhatsApp messages within few minutes during business hours (8AM-7PM). For emails, we respond within 1 hours.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3><i class="fas fa-shopping-cart"></i> Where can I see your products?</h3>
+        <p>Visit our <a href="store.html" style="color: var(--main-green);">online store</a> or follow us on social media to see our latest products.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3><i class="fas fa-truck"></i> Do you offer delivery services?</h3>
+        <p>Yes! We deliver throughout Kigali. Contact us for delivery options outside Kigali.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3><i class="fas fa-cogs"></i> Do you provide maintenance?</h3>
+        <p>We offer maintenance services for all our products. Contact us to schedule service.</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer matches index.html -->
+  <footer>
+    <p>Ready to cook smarter? Click "Order Now" or visit us in Kimironko.</p>
+    <p>&copy; 2025 Green Hanga Ltd. Built with love in Rwanda.</p>
+  </footer>
+</body>
+</html>
